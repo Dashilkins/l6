@@ -280,6 +280,110 @@
             color: #b79aff;
             font-size: 18px;
         }
+
+        /* Стили для блока входа через соцсети */
+        .social-login {
+            margin: 25px 0 10px;
+            padding: 20px;
+            background: rgba(245, 238, 255, 0.5);
+            border-radius: 30px;
+            border: 1px dashed rgba(183, 148, 244, 0.5);
+        }
+        
+        .social-login-title {
+            color: #6b4e9e;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            min-width: 80px;
+            padding: 10px 15px;
+            border-radius: 30px;
+            border: none;
+            background: white;
+            color: #2d1b44;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(107, 78, 158, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid rgba(183, 148, 244, 0.3);
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(107, 78, 158, 0.4);
+            color: white;
+        }
+        
+        .social-btn.vk:hover {
+            background: #4a76a8;
+            border-color: #4a76a8;
+        }
+        
+        .social-btn.telegram:hover {
+            background: #0088cc;
+            border-color: #0088cc;
+        }
+        
+        .social-btn.google:hover {
+            background: #db4437;
+            border-color: #db4437;
+        }
+        
+        .social-btn.yandex:hover {
+            background: #ff3333;
+            border-color: #ff3333;
+        }
+        
+        .social-btn.github:hover {
+            background: #333;
+            border-color: #333;
+        }
+        
+        .social-icon {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #9b87b8;
+            font-size: 14px;
+            margin: 20px 0 10px;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(183, 148, 244, 0.3);
+        }
+        
+        .divider::before {
+            margin-right: 10px;
+        }
+        
+        .divider::after {
+            margin-left: 10px;
+        }
         
         @media (max-width: 500px) {
             .card {
@@ -298,6 +402,12 @@
             .subscribe-btn {
                 padding: 10px 25px;
                 font-size: 14px;
+            }
+            
+            .social-btn {
+                min-width: 70px;
+                padding: 8px 12px;
+                font-size: 13px;
             }
         }
     </style>
@@ -338,6 +448,29 @@
                 <div class="value">Информационные системы и программирование<br>IT-специалист</div>
             </div>
         </div>
+
+        <div class="social-login">
+            <div class="social-login-title">Войти с помощью</div>
+            <div class="social-buttons">
+                <button class="social-btn vk" title="ВКонтакте">
+                    <span>ВКонтакте</span>
+                </button>
+                <button class="social-btn telegram" title="Telegram">
+                    <span>Telegram</span>
+                </button>
+                <button class="social-btn google" title="Google">
+                    <span>Google</span>
+                </button>
+                <button class="social-btn yandex" title="Яндекс">
+                    <span>Яндекс</span>
+                </button>
+                <button class="social-btn github" title="GitHub">
+                    <span>GitHub</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="divider">или</div>
         
         <div class="decor-stars">
             <span>✧</span>
@@ -347,5 +480,14 @@
         
         <button class="subscribe-btn">✧ Подписаться на новости ✧</button>
     </div>
+
+    <script>
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const socialName = this.querySelector('span:last-child').textContent;
+                alert(`Демонстрация входа через ${socialName}`);
+            });
+        });
+    </script>
 </body>
 </html>
